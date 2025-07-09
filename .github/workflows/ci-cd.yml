@@ -34,5 +34,5 @@ jobs:
           docker run -d \
             --restart=always \
             --name wolka-app \
-            -p 8080:80 \
+            -p 8080:8080 \
             ${{ secrets.REGISTRY_URL }}/wolka:latest
