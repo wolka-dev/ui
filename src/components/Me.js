@@ -70,7 +70,16 @@ const Me = () => (
               <div className="timeline-content">
                 <div className="job-header">
                   <h3>Senior Backend Engineer</h3>
-                  <span className="company">Eryaz, Istanbul</span>
+                  <span className="company">
+                    <a
+                      href="https://eryaz.net"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="company-link"
+                    >
+                      Eryaz, Istanbul
+                    </a>
+                  </span>
                   <span className="duration">June 2024 - Present</span>
                 </div>
                 <ul className="job-description">
@@ -100,7 +109,16 @@ const Me = () => (
               <div className="timeline-content">
                 <div className="job-header">
                   <h3>Senior Backend Engineer</h3>
-                  <span className="company">Paribu, Istanbul</span>
+                  <span className="company">
+                    <a
+                      href="https://paribu.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="company-link"
+                    >
+                      Paribu, Istanbul
+                    </a>
+                  </span>
                   <span className="duration">December 2020 - 2024</span>
                 </div>
                 <ul className="job-description">
@@ -294,55 +312,38 @@ const Me = () => (
         <div className="container">
           <h2 className="section-title">Get in Touch</h2>
           <div className="contact-grid">
-            <a href="tel:+905528999690" className="contact-card">
+            <div className="contact-card">
               <div className="contact-icon">
-                <i className="fas fa-phone-alt"></i>
-              </div>
-              <div className="contact-info">
-                <h3>Phone</h3>
-                <p>+90 (552) 899-9690</p>
-              </div>
-            </a>
-            <a
-              href="mailto:gozalzadeh.sajjad@gmail.com"
-              className="contact-card"
-            >
-              <div className="contact-icon">
-                <i className="fas fa-envelope"></i>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
               </div>
               <div className="contact-info">
                 <h3>Email</h3>
-                <p>gozalzadeh.sajjad@gmail.com</p>
+                <p>sajjad@wolka.dev</p>
               </div>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/sajjad-gozalzadeh-455954192/"
-              className="contact-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            </div>
+            <div className="contact-card">
               <div className="contact-icon">
-                <i className="fab fa-linkedin"></i>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"
+                  />
+                </svg>
               </div>
               <div className="contact-info">
                 <h3>LinkedIn</h3>
-                <p>Connect with me</p>
+                <p>linkedin.com/in/sajjad-gozalzadeh</p>
               </div>
-            </a>
-            <a
-              href="https://github.com/sajjadgozal"
-              className="contact-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="contact-icon">
-                <i className="fab fa-github"></i>
-              </div>
-              <div className="contact-info">
-                <h3>GitHub</h3>
-                <p>View my projects</p>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </section>
