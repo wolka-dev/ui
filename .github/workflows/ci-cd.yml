@@ -1,0 +1,38 @@
+name: Deploy to Wolka Server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Log in to Docker Registry
+      run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ secrets.REGISTRY_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t ${{ secrets.REGISTRY_URL }}/wolka:latest .
+        docker push ${{ secrets.REGISTRY_URL }}/wolka:latest
+
+    - name: SSH into Server and Deploy
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          docker pull ${{ secrets.REGISTRY_URL }}/wolka:latest
+          docker stop wolka-app || true
+          docker rm wolka-app || true
+          docker run -d \
+            --restart=always \
+            --name wolka-app \
+            -p 8080:80 \
+            ${{ secrets.REGISTRY_URL }}/wolka:latest
