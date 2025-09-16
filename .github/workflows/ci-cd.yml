@@ -34,6 +34,6 @@ jobs:
           docker run -d \
             --restart=always \
             --name wolka-app \
-            --network npm-network \
+            --network root_npm-network \
             -p 8080:8080 \
             ${{ secrets.REGISTRY_URL }}/wolka:latest
