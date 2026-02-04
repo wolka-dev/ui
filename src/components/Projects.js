@@ -42,6 +42,17 @@ const Projects = () => {
       status: "Live",
       image: "🍽️",
     },
+    {
+      id: 4,
+      name: "Kervan Konut",
+      url: "https://kervankonut.com.tr",
+      description:
+        "A professional WordPress website for Kervan Konut, a construction and real estate company based in Istanbul. The site showcases their projects and services in the construction and real estate sector.",
+      technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript"],
+      category: "Real Estate & Construction",
+      status: "Live",
+      image: "🏗️",
+    },
   ];
 
   return (
@@ -65,7 +76,7 @@ const Projects = () => {
           <div className="hero-visual">
             <div className="floating-card">
               <div className="card-icon">💻</div>
-              <h3>3+</h3>
+              <h3>4+</h3>
               <p>Active Projects</p>
             </div>
             <div className="floating-card">
