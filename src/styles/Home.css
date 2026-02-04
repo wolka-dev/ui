@@ -1,25 +1,5 @@
-/* Modern CSS for Home Component */
-
-/* CSS Variables - Inheriting from existing styles */
-:root {
-  --primary-color: #6366f1;
-  --primary-dark: #4f46e5;
-  --secondary-color: #8b5cf6;
-  --accent-color: #06b6d4;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --text-light: #9ca3af;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --border-color: #e5e7eb;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-}
+/* Dark Theme CSS for Home Component */
+@import "./variables.css";
 
 /* Reset and Base Styles */
 .home-container {
@@ -28,6 +8,7 @@
   color: var(--text-primary);
   background-color: var(--bg-primary);
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* Hero Section */
@@ -37,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
   overflow: hidden;
 }
 
@@ -53,7 +34,7 @@
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(99, 102, 241, 0.1);
   animation: float 6s ease-in-out infinite;
 }
 
@@ -88,7 +69,7 @@
 }
 
 .hero-text {
-  color: white;
+  color: var(--text-primary);
 }
 
 .hero-title {
@@ -96,10 +77,11 @@
   font-weight: 800;
   margin-bottom: 1rem;
   line-height: 1.1;
+  color: var(--text-primary);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -109,13 +91,13 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  opacity: 0.9;
+  color: var(--text-secondary);
 }
 
 .hero-description {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  opacity: 0.8;
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 600px;
   margin-left: auto;
@@ -125,6 +107,7 @@
 /* Main Content */
 .main-content {
   padding: 4rem 0;
+  background-color: var(--bg-primary);
 }
 
 .section {
@@ -171,8 +154,8 @@
 }
 
 .nav-card {
-  background: var(--bg-primary);
-  border-radius: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 0.75rem;
   padding: 2.5rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
@@ -190,26 +173,22 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 3px;
   background: var(--gradient-primary);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
 .nav-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
   color: var(--text-primary);
   text-decoration: none;
 }
 
 .nav-card:hover::before {
   transform: scaleX(1);
-}
-
-.card-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
 }
 
 .nav-card h3 {
@@ -230,10 +209,74 @@
   color: var(--primary-color);
   font-weight: bold;
   transition: transform 0.3s ease;
+  display: inline-block;
 }
 
 .nav-card:hover .card-arrow {
   transform: translateX(8px);
+}
+
+.nav-card:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.nav-card:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Consulting Services */
+.consulting-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.consulting-description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.consulting-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-item {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.service-item h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.service-item p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 /* Stats Grid */
@@ -247,8 +290,8 @@
 .stat-item {
   text-align: center;
   padding: 2rem;
-  background: var(--bg-primary);
-  border-radius: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 0.75rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
@@ -257,6 +300,7 @@
 .stat-item:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
 }
 
 .stat-number {
@@ -285,6 +329,15 @@
 
   .nav-card {
     padding: 2rem;
+  }
+
+  .consulting-services {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .consulting-description {
+    font-size: 1.1rem;
   }
 
   .stats-grid {
@@ -317,8 +370,4 @@
   .nav-card {
     padding: 1.5rem;
   }
-
-  .card-icon {
-    font-size: 2.5rem;
-  }
-} 
+}

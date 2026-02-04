@@ -1,39 +1,14 @@
-/* Modern CSS for Me Component */
-
-/* CSS Variables */
-:root {
-  --primary-color: #6366f1;
-  --primary-dark: #4f46e5;
-  --secondary-color: #8b5cf6;
-  --accent-color: #06b6d4;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --text-light: #9ca3af;
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --border-color: #e5e7eb;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-}
+/* Dark Theme CSS for Me Component */
+@import "./variables.css";
 
 /* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .me-container {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--bg-primary);
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* Hero Section */
@@ -43,8 +18,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
   overflow: hidden;
+  padding-top: 80px;
 }
 
 .hero-background {
@@ -59,7 +35,7 @@
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(99, 102, 241, 0.1);
   animation: float 6s ease-in-out infinite;
 }
 
@@ -97,7 +73,7 @@
 }
 
 .hero-text {
-  color: white;
+  color: var(--text-primary);
 }
 
 .hero-title {
@@ -108,7 +84,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -118,13 +94,13 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  opacity: 0.9;
+  color: var(--text-secondary);
 }
 
 .hero-location {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  opacity: 0.8;
+  color: var(--text-secondary);
 }
 
 .hero-cta {
@@ -144,24 +120,35 @@
 }
 
 .cta-button:first-child {
-  background: white;
-  color: var(--primary-color);
+  background: var(--primary-color);
+  color: white;
 }
 
 .cta-button:first-child:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+  background: var(--primary-dark);
 }
 
 .cta-button.secondary {
   background: transparent;
-  color: white;
-  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--text-primary);
+  border-color: var(--border-color);
 }
 
 .cta-button.secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--bg-secondary);
+  border-color: var(--primary-color);
+}
+
+.cta-button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 .hero-visual {
@@ -171,33 +158,29 @@
 }
 
 .floating-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
   padding: 1.5rem;
   text-align: center;
-  color: white;
+  color: var(--text-primary);
   animation: slideInRight 0.8s ease-out;
+  box-shadow: var(--shadow-md);
 }
 
 .floating-card:nth-child(2) {
   animation-delay: 0.2s;
 }
 
-.card-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
 .floating-card h3 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
+  color: var(--text-primary);
 }
 
 .floating-card p {
-  opacity: 0.8;
+  color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
@@ -236,10 +219,7 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 /* About Section */
@@ -286,14 +266,14 @@
   height: 1rem;
   background: var(--primary-color);
   border-radius: 50%;
-  border: 3px solid white;
+  border: 3px solid var(--bg-primary);
   box-shadow: var(--shadow-md);
 }
 
 .timeline-content {
-  background: white;
+  background: var(--bg-secondary);
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -302,6 +282,7 @@
 .timeline-content:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color);
 }
 
 .job-header {
@@ -371,9 +352,9 @@
 }
 
 .skill-category {
-  background: white;
+  background: var(--bg-secondary);
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -383,11 +364,7 @@
 .skill-category:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
-}
-
-.skill-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  border-color: var(--primary-color);
 }
 
 .skill-category h3 {
@@ -419,13 +396,14 @@
   background: var(--primary-color);
   color: white;
   transform: translateY(-2px);
+  border-color: var(--primary-color);
 }
 
 /* Education */
 .education-card {
-  background: white;
+  background: var(--bg-secondary);
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
   display: flex;
@@ -439,11 +417,7 @@
 .education-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
-}
-
-.education-icon {
-  font-size: 3rem;
-  flex-shrink: 0;
+  border-color: var(--primary-color);
 }
 
 .education-content h3 {
@@ -480,9 +454,9 @@
 }
 
 .language-card {
-  background: white;
+  background: var(--bg-secondary);
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
   text-align: center;
@@ -492,11 +466,7 @@
 .language-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
-}
-
-.language-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  border-color: var(--primary-color);
 }
 
 .language-card h3 {
@@ -521,9 +491,9 @@
 }
 
 .contact-card {
-  background: white;
+  background: var(--bg-secondary);
   padding: 1.5rem;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
   text-decoration: none;
@@ -532,12 +502,23 @@
   align-items: center;
   gap: 1rem;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .contact-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
   border-color: var(--primary-color);
+}
+
+.contact-card:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.contact-card:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 .contact-icon {
@@ -628,4 +609,4 @@
   .skills-grid {
     grid-template-columns: 1fr;
   }
-} 
+}

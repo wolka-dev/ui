@@ -1,18 +1,22 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import Home from "./components/Home";
 import Me from "./components/Me";
 import Projects from "./components/Projects";
-import logo from "./assets/logo.svg";
+import NotFound from "./components/NotFound";
 import "./App.css";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/me" element={<Me />} />
-      <Route path="/projects" element={<Projects />} />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/me" element={<Me />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
   );
 }
 

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { observeStaggerElements } from "../utils/animations";
 import "../styles/Projects.css";
+import "../styles/animations.css";
 
 const Projects = () => {
   const projects = [
@@ -12,7 +14,7 @@ const Projects = () => {
       technologies: ["React", "Node.js", "Docker", "Kubernetes", "Redis"],
       category: "Performance Testing",
       status: "Live",
-      image: "🚀",
+      image: "https://via.placeholder.com/600x400/6366f1/ffffff?text=Loadrix",
     },
     {
       id: 2,
@@ -23,7 +25,7 @@ const Projects = () => {
       technologies: ["Vue.js", "Laravel", "MySQL", "AWS", "Stripe"],
       category: "E-commerce",
       status: "Live",
-      image: "🏠",
+      image: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Decoraray",
     },
     {
       id: 3,
@@ -40,7 +42,7 @@ const Projects = () => {
       ],
       category: "Restaurant Tech",
       status: "Live",
-      image: "🍽️",
+      image: "https://via.placeholder.com/600x400/06b6d4/ffffff?text=MenuCu",
     },
     {
       id: 4,
@@ -51,9 +53,14 @@ const Projects = () => {
       technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript"],
       category: "Real Estate & Construction",
       status: "Live",
-      image: "🏗️",
+      image: "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Kervan+Konut",
     },
   ];
+
+  useEffect(() => {
+    observeStaggerElements(".section", 150);
+    observeStaggerElements(".project-card", 100);
+  }, []);
 
   return (
     <div className="projects-container">
@@ -75,12 +82,10 @@ const Projects = () => {
           </div>
           <div className="hero-visual">
             <div className="floating-card">
-              <div className="card-icon">💻</div>
               <h3>4+</h3>
               <p>Active Projects</p>
             </div>
             <div className="floating-card">
-              <div className="card-icon">⚡</div>
               <h3>100%</h3>
               <p>Uptime</p>
             </div>
@@ -94,20 +99,27 @@ const Projects = () => {
 
       {/* Projects Grid */}
       <main className="main-content">
-        <section className="section">
+        <section className="section animate-on-scroll">
           <div className="container">
             <h2 className="section-title">Our Projects</h2>
             <div className="projects-grid">
               {projects.map((project) => (
-                <div key={project.id} className="project-card">
-                  <div className="project-header">
-                    <div className="project-icon">{project.image}</div>
-                    <div className="project-status">
-                      <span
-                        className={`status-badge ${project.status.toLowerCase()}`}
-                      >
-                        {project.status}
-                      </span>
+                <div key={project.id} className="project-card animate-on-scroll">
+                  <div className="project-image-container">
+                    <img
+                      src={project.image}
+                      alt={`${project.name} project preview`}
+                      className="project-image"
+                      loading="lazy"
+                    />
+                    <div className="project-overlay">
+                      <div className="project-status">
+                        <span
+                          className={`status-badge ${project.status.toLowerCase()}`}
+                        >
+                          {project.status}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
@@ -117,8 +129,8 @@ const Projects = () => {
                     <p className="project-description">{project.description}</p>
 
                     <div className="project-technologies">
-                      {project.technologies.map((tech, index) => (
-                        <span key={index} className="tech-tag">
+                      {project.technologies.map((tech) => (
+                        <span key={tech} className="tech-tag">
                           {tech}
                         </span>
                       ))}
@@ -131,6 +143,7 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="project-link"
+                      aria-label={`Visit ${project.name} project`}
                     >
                       Visit Project
                       <svg
@@ -138,6 +151,7 @@ const Projects = () => {
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"
@@ -155,7 +169,7 @@ const Projects = () => {
         </section>
 
         {/* About Wolka.dev */}
-        <section className="section">
+        <section className="section animate-on-scroll">
           <div className="container">
             <h2 className="section-title">About Wolka.dev</h2>
             <div className="about-content">
