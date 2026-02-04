@@ -53,7 +53,8 @@ const Projects = () => {
       technologies: ["WordPress", "PHP", "MySQL", "CSS", "JavaScript"],
       category: "Real Estate & Construction",
       status: "Live",
-      image: "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Kervan+Konut",
+      image:
+        "https://via.placeholder.com/600x400/3b82f6/ffffff?text=Kervan+Konut",
     },
   ];
 
@@ -80,16 +81,6 @@ const Projects = () => {
               experiences.
             </p>
           </div>
-          <div className="hero-visual">
-            <div className="floating-card">
-              <h3>4+</h3>
-              <p>Active Projects</p>
-            </div>
-            <div className="floating-card">
-              <h3>100%</h3>
-              <p>Uptime</p>
-            </div>
-          </div>
         </div>
         <div className="hero-background">
           <div className="gradient-orb"></div>
@@ -104,7 +95,10 @@ const Projects = () => {
             <h2 className="section-title">Our Projects</h2>
             <div className="projects-grid">
               {projects.map((project) => (
-                <div key={project.id} className="project-card animate-on-scroll">
+                <div
+                  key={project.id}
+                  className="project-card animate-on-scroll"
+                >
                   <div className="project-image-container">
                     <img
                       src={project.image}
